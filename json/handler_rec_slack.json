@@ -1,0 +1,32 @@
+{
+  "handlers": {
+    "slack-rec-record": {
+      "type": "pipe",
+      "command": "handler-slack.rb -j slack-rec-record",
+      "filter": "action_create_only"
+    },
+    "slack-rec-fin": {
+      "type": "pipe",
+      "command": "handler-slack.rb -j slack-rec-fin",
+      "filter": "action_create_only"
+    },
+    "slack-rec-err": {
+      "type": "pipe",
+      "command": "handler-slack.rb -j slack-rec-err",
+      "filter": "action_create_only"
+    }
+  },
+  "slack-rec-record": {
+    "webhook_url": "https://hooks.slack.com/services/xxxx",
+    "payload_template": "/etc/sensu/conf.d/slack_payload/attachement_rec-record.erb"
+  },
+  "slack-rec-fin": {
+    "webhook_url": "https://hooks.slack.com/services/xxxx",
+    "payload_template": "/etc/sensu/conf.d/slack_payload/attachement_rec-fin.erb"
+  },
+  "slack-rec-err": {
+    "webhook_url": "https://hooks.slack.com/services/xxxx",
+    "payload_template": "/etc/sensu/conf.d/slack_payload/attachement_rec-err.erb"
+  }
+}
+

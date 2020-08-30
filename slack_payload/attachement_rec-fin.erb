@@ -1,0 +1,25 @@
+{
+  "channel": "alert-rec-sensu",
+  "username": "<%= @event["client"]["name"] %>",
+  "attachments": [
+    {
+      "fallback": "REC STOP!!",
+      "pretext": "Stop recording!",
+      "title": "Rec Dashboard",
+      "title_link": "http://192.168.2.10/#!/dashboard/top/",
+      "fields": [
+          {
+             "title": "Status",
+             "value": "Stop recording now!",
+             "short": false 
+          },
+          {
+             "title": "Log",
+             "value": "<%= @event["check"]["output"] %>",
+             "short": false
+          }
+      ],
+      "color": "good"
+    }
+  ]
+}

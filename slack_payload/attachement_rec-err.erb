@@ -1,0 +1,26 @@
+{
+  "channel": "alert-rec-sensu",
+  "username": "<%= @event["client"]["name"] %>",
+  "attachments": [
+    {
+      "fallback": "REC ERROR!!",
+      "pretext": "Recording failed!",
+      "title": "Rec Dashboard",
+      "title_link": "http://192.168.2.10/#!/dashboard/top/",
+      "fields": [
+          {
+             "title": "Status",
+             "value": "Recording failed!",
+             "short": false 
+          },
+          {
+             "title": "Log",
+             "value": "<%= @event["check"]["output"] %>",
+             "short": false
+          }
+      ],
+      "color": "warning"
+    }
+  ]
+}
+
