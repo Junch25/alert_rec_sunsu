@@ -1,0 +1,11 @@
+{
+  "filters": {
+    "action_create_only": {
+      "negate": false,
+      "attributes": {
+          "action": "create"
+      }
+    }
+  }
+}
+

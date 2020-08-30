@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "rec-record": {
+      "command": "check-log.rb -f /home/rec_pc/EPGStation/logs/Operator/system.log --pattern 'recording:' --name=record --return",
+      "interval": 60,
+      "subscribers": [ "rec" ],
+      "handlers": ["slack-rec-record"]
+    },
+    "rec-fin": {
+      "command": "check-log.rb -f /home/rec_pc/EPGStation/logs/Operator/system.log --pattern 'recording finish:' --name=fin --return",
+      "interval": 60,
+      "subscribers": [ "rec" ],
+      "handlers": ["slack-rec-fin"]
+    },
+    "rec-err": {
+      "command": "check-log.rb -f /home/rec_pc/EPGStation/logs/Operator/system.log --pattern 'ERROR' --name=err --return",
+      "interval": 60,
+      "subscribers": [ "rec" ],
+      "handlers": ["slack-rec-err"]
+    }
+  }
+}
